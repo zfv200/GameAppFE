@@ -1,6 +1,6 @@
 class Game {
 
-  
+
 
   static renderLogin(){
     let gameContent = document.getElementById('game-content')
