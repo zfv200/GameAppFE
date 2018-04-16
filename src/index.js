@@ -1,1 +1,5 @@
-console.log("index file hooked up")
+document.addEventListener('DOMContentLoaded', e=>{
+
+  Game.renderLogin()
+  
+})
