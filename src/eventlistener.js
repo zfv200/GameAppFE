@@ -10,4 +10,14 @@ class EventListener{
 			Game.renderGameplay()
 		})
 	}
+
+
+	static shoot(){
+		document.addEventListener('keydown', function(e){
+			debugger
+			if (e.target === 32){
+				
+			}
+		})
+	}
 }
