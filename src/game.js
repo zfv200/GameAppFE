@@ -14,8 +14,10 @@ class Game {
   }
 
   static renderGameplay(){
-    
+
   }
 
-  
+  function start(){
+    EventListener.shoo()
+  }
 }
