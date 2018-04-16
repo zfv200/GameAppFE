@@ -18,7 +18,7 @@ class Arrow{
 	moveArrow(){
 		let arrow = document.getElementsByClassName('arrow')[0]
 		function curve(){
-			if (parseInt(arrow.style.left) < 580) {
+			if (parseInt(arrow.style.left) < 580 && parseInt(arrow.style.bottom) >= 0) {
 				arrow.style.left = `${parseInt(arrow.style.left) + 3}px`
 			}
 			if (parseInt(arrow.style.left) < 300) {
