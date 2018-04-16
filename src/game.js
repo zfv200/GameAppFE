@@ -6,11 +6,15 @@ class Game {
       <h3>Enter Your Username!</h3>
       <div id="welcome-content">
       <form id="user-form">
-      <input id="user-name-input" type="text">
+      <input id="user_name_input" type="text">
       <input type="submit">
       </form>
       </div>`
     gameContent.innerHTML = welcomeScreen
+  }
+
+  static renderGameplay(){
+    
   }
 
   
