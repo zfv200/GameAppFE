@@ -21,4 +21,15 @@ class EventListener{
 			}
 		})
 	}
+
+	static playerMovement(){
+		let player = new Player
+		document.addEventListener('keydown', function(e){
+			if (e.which===39){
+				player.moveRight()
+			} else if (e.which===37){
+				player.moveLeft()
+			}
+		})
+	}
 }

@@ -22,6 +22,7 @@ class Game {
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
     EventListener.shoot()
+    EventListener.playerMovement()
   }
 
 
