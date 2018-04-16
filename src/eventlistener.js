@@ -14,9 +14,10 @@ class EventListener{
 
 	static shoot(){
 		document.addEventListener('keydown', function(e){
-			debugger
-			if (e.target === 32){
-				
+			e.preventDefault()
+			if (e.which === 32){
+				let arrow = new Arrow()
+				arrow.shoot()
 			}
 		})
 	}

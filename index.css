@@ -1,6 +1,14 @@
 .arrow {
   width: 20px;
   height: 20px;
-  background: tan;
+  background: blue;
   position: absolute;
+  
+}
+
+#canvas {
+	width: 600px;
+	height: 600px;
+	background: tan;
+	position: absolute;
 }
