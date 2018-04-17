@@ -55,7 +55,6 @@ class Player{
     let targetBottom = parseInt(this.target.style.bottom)
     if (targetBottom >= 5 && targetBottom <= 35) {
       this.target.style.bottom = `${targetBottom + px}px`
-      console.log(this.target.style.bottom)
     }
     if (parseInt(this.target.style.bottom)> 35){
       this.target.style.bottom = '35px'
@@ -63,7 +62,6 @@ class Player{
       this.target.style.bottom = '5px'
     }
     this.aim = 150 + ((parseInt(this.target.style.bottom) - 5) * 5)
-    console.log(this.aim)
   }
 
 

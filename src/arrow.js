@@ -3,7 +3,6 @@ class Arrow{
 	constructor(aim){
 		this.arrow = document.createElement('div')
 		this.aim = aim
-
 	}
 
 	shoot(){
@@ -23,18 +22,19 @@ class Arrow{
 
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
-		let aim = this.aim
+		let aim = this.aim + parseInt(store[0].player.style.left)
+		console.log(aim)
 		function curve(){
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
 			let distance = Math.abs(aim - left)
-			if (left < 580 && bottom >= 0) {
+			if (left <= 580 && bottom >= 0) {
 				arrow.style.left = `${left + 8}px`
 			}
 			if (left < aim) {
 				arrow.style.bottom = `${bottom + Math.round(distance / 30.0)}px`
 			} else {
-				if (bottom >= 0) {
+				if (bottom >= 0 && left < 580) {
 					arrow.style.bottom = `${bottom - Math.round(distance / 30.0)}px`
 				} else{
 					if (arrow.parentNode !== null){
@@ -42,6 +42,7 @@ class Arrow{
 					}
 				}
 			}
+			console.log(arrow.style.bottom, arrow.style.left)
 		}
 		setInterval(curve, 22)
 
