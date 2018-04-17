@@ -17,11 +17,25 @@ class Arrow{
 	}
 
 
+
+	static checkCollision(arrow){
+		return structureStore.find(building=>{
+			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) &&
+					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) &&
+					parseInt(arrow.style.bottom) < 20)
+		})
+	}
+
+
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
 		let aim = this.aim + parseInt(store[0].player.style.left)
 		console.log(aim)
 		function curve(){
+			if (Arrow.checkCollision(arrow)!==undefined){
+				Arrow.checkCollision(arrow).structure.remove()
+				arrow.remove()
+			}
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
 			let distance = Math.abs(aim - left)
@@ -36,11 +50,14 @@ class Arrow{
 				} else{
 					if (arrow.parentNode !== null){
 						arrow.parentNode.removeChild(arrow)
+						}
 					}
 				}
 			}
+
 			console.log(arrow.style.bottom, arrow.style.left)
 		}
+
 		setInterval(curve, 22)
 
 	}
