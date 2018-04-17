@@ -26,10 +26,10 @@ class Arrow{
 
 	static checkCollision(arrow){
 		return structureStore.find(building=>{
-			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) &&
-					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) &&
-					parseInt(arrow.style.bottom) < (parseInt(building.structure.style.bottom) + 20) &&
-					parseInt(arrow.style.bottom) > parseInt(building.structure.style.bottom))
+			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) + 4 &&
+					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) + 4 &&
+					parseInt(arrow.style.bottom) + 4 < (parseInt(building.structure.style.bottom) + 20) &&
+					parseInt(arrow.style.bottom) + 4 > parseInt(building.structure.style.bottom))
 		})
 	}
 
