@@ -11,6 +11,16 @@ class EventListener{
 		})
 	}
 
+	static click(){
+		document.addEventListener('click', function(e){
+			if (e.target.id === 'start'){
+				e.target.parentNode.removeChild(e.target)
+				Game.startGame()
+
+			}
+		})
+	}
+
 
 	static keypress(){
 		let player = new Player
