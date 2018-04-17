@@ -3,8 +3,6 @@ let timer = null
 
 class Game {
 
-
-
   static renderLogin(){
     let gameContent = document.getElementById('game-content')
     let welcomeScreen = `
@@ -39,7 +37,6 @@ class Game {
   static gameOver(){
     let timer = document.getElementsByClassName(`timer`)[0]
     Adapter.postScore(parseInt(timer.textContent))
-
   }
 
   // function start(){
