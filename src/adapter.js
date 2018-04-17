@@ -32,6 +32,7 @@ class Adapter {
   }
 
   static postScore(score){
+    debugger
     fetch(base_url +  'completed_games', {
       headers: {'Content-Type': 'application/json'},
       method: 'post',

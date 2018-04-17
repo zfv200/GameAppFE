@@ -68,6 +68,7 @@ class EnemyStructure {
     let end = 0 - velocity
     let delta = 1
     let structure = this.structure
+    let structureObject = this
     function move(){
         let bottom = parseInt(structure.style.bottom)
         let left = parseInt(structure.style.left)
@@ -78,8 +79,10 @@ class EnemyStructure {
             velocity = Math.floor(Math.random() * 3 + startVelocity)
             end = 0 - velocity
         }
+        structureObject.checkCollision()
     }
-
+    
+    
     setInterval(move, 700 / (startVelocity * 2))
   }
 
@@ -122,6 +125,7 @@ class EnemyStructure {
     let structure = this.structure
     let count = Math.floor(Math.random() * 10)
     let dive = false
+    let structureObject = this
     function move(){
         let bottom = parseInt(structure.style.bottom)
         let left = parseInt(structure.style.left)
@@ -152,11 +156,27 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-
+        structureObject.checkCollision()
         }
+
 
 
     setInterval(move, 1000 / 10)
 
+
   }
+
+  checkCollision(){
+        let player = store[0].player
+        if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
+          (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
+          parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
+          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+
+            console.log('GAME OVER')
+            Game.gameOver()
+        }
+    }
+
+  
 }

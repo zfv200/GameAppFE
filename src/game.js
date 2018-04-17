@@ -1,4 +1,5 @@
 let level = 1
+let timer = null
 
 class Game {
 
@@ -20,7 +21,7 @@ class Game {
   static renderGameplay(){
     let gameContent = document.getElementById('game-content')
     let area = document.createElement('div')
-    let timer = new Timer
+    timer = new Timer
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
@@ -35,8 +36,9 @@ class Game {
     new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, level++)
   }
 
-  static gameOver(score){
-    Adapter.postScore(score)
+  static gameOver(){
+    let timer = document.getElementsByClassName(`timer`)[0]
+    Adapter.postScore(parseInt(timer.textContent))
 
   }
 
