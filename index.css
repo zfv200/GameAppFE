@@ -38,6 +38,14 @@
   left: 620px;
 }
 
+#high-score {
+  width: 1000px;
+  height: 40px;
+  position: absolute;
+  left: 100px;
+  bottom: 40px;
+}
+
 #canvas {
 	width: 600px;
 	height: 600px;
