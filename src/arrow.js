@@ -1,20 +1,21 @@
 class Arrow{
 
-	constructor(user_id){
+	constructor(aim){
 		this.arrow = document.createElement('div')
-		this.user_id = user_id
+		this.aim = aim
 	}
 
 	shoot(){
 		const area = document.getElementById('canvas')
 		// const arrow = document.createElement('div')
 		this.arrow.className = `arrow`
-		this.arrow.style.bottom = '0px'
-		this.arrow.style.left = store[0].player.style.left
+		this.arrow.style.bottom = store[0].target.style.bottom
+		this.arrow.style.left = store[0].target.style.left
 
 		area.appendChild(this.arrow)
 		this.moveArrow()
 	}
+
 
 	static checkCollision(arrow){
 		return structureStore.find(building=>{
@@ -24,12 +25,10 @@ class Arrow{
 		})
 	}
 
-	static setIntervalFunc(){
-
-	}
-
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
+		let aim = this.aim + parseInt(store[0].player.style.left)
+		console.log(aim)
 		function curve(){
 			if (Arrow.checkCollision(arrow)!==undefined){
 				Arrow.checkCollision(arrow).structure.remove()
@@ -37,14 +36,14 @@ class Arrow{
 			}
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
-			let distance = Math.abs(290 - left)
-			if (left < 580 && bottom >= 0) {
+			let distance = Math.abs(aim - left)
+			if (left <= 580 && bottom >= 0) {
 				arrow.style.left = `${left + 8}px`
 			}
-			if (left < 290) {
+			if (left < aim) {
 				arrow.style.bottom = `${bottom + Math.round(distance / 30.0)}px`
 			} else {
-				if (bottom >= 0) {
+				if (bottom >= 0 && left < 580) {
 					arrow.style.bottom = `${bottom - Math.round(distance / 30.0)}px`
 				} else{
 					if (arrow.parentNode !== null){
@@ -53,6 +52,10 @@ class Arrow{
 					}
 				}
 			}
+
+			console.log(arrow.style.bottom, arrow.style.left)
+		}
+
 		setInterval(curve, 22)
 
 	}
