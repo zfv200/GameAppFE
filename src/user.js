@@ -8,5 +8,4 @@ class User {
     current_user = this
     document.getElementById('high-score').innerHTML = `<h1>High Score: ${this.high_score} seconds!</h1>`
   }
-
 }
