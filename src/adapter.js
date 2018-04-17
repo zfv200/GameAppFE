@@ -1,4 +1,5 @@
 console.log("adapter class hooked up")
+base_url = 'http://localhost:3000/api/v1/'
 
 class Adapter {
 
@@ -7,7 +8,7 @@ class Adapter {
   }
 
   static getUser(usernameInput){
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch(base_url + 'users', {
       headers: {'Content-Type': 'application/json'},
       method: 'get'
     }).then(r=>r.json()).then(json=>{
@@ -21,13 +22,21 @@ class Adapter {
   }
 
   static createUser(usernameInput){
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch(base_url + 'users', {
       headers: {'Content-Type':'application/json'},
       method: 'post',
       body: JSON.stringify({username:usernameInput})
     }).then(r=>r.json()).then(json=>{
       new User(json)
     })
+  }
+
+  static postScore(score){
+    fetch(base_url +  'completed_games', {
+      headers: {'Content-Type': 'application/json'},
+      method: 'post',
+      body: JSON.stringify({user_id: current_user.id, score:score})
+    }).then(r=>r.json()).then(json=>console.log(json))
   }
 
 }

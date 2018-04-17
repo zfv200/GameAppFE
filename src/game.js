@@ -32,6 +32,10 @@ class Game {
     new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, level++)
   }
 
+  static gameOver(score){
+    Adapter.postScore(score)
+
+  }
 
   // function start(){
   //   EventListener.shoot()

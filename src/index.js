@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', e=>{
  
-  // Game.renderLogin()
+  Game.renderLogin()
 
-  // EventListener.login()
+  EventListener.login()
 
-  Game.renderGameplay() //remove if login
+  // Game.renderGameplay() //remove if login
 
 })

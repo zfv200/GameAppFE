@@ -1,8 +1,9 @@
-console.log("user class hooked up")
+let current_user = null
+
 class User {
   constructor(json) {
     this.id = json.id
     this.username = json.username
-    console.log("yay!")
+    current_user = this
   }
 }
