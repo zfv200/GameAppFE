@@ -1,6 +1,9 @@
+let arrowId = 0
+
 class Arrow{
 
 	constructor(aim){
+		this.id = ++arrowId
 		this.arrow = document.createElement('div')
 		this.aim = aim
 	}
@@ -27,12 +30,15 @@ class Arrow{
 
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
-		let aim = this.aim + parseInt(store[0].player.style.left)
+		let aim = this.aim + parseInt(store[0].player.style.left) -5
 		console.log(aim)
 		function curve(){
 			if (Arrow.checkCollision(arrow)!==undefined){
 				Arrow.checkCollision(arrow).structure.remove()
+				structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
 				arrow.remove()
+				Game.renderEnemyStructure()
+				clearInterval(myInterval)
 			}
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
@@ -48,15 +54,16 @@ class Arrow{
 				} else{
 					if (arrow.parentNode !== null){
 						arrow.parentNode.removeChild(arrow)
+						clearInterval(myInterval)
 						}
 					}
 				}
-			}
-
 			console.log(arrow.style.bottom, arrow.style.left)
+			console.log(aim)
 		}
 
-		setInterval(curve, 22)
+		let myInterval = setInterval(curve, 22)
+
 
 	}
 

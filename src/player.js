@@ -32,7 +32,7 @@ class Player{
   }
 
   moveRight(){
-    this.movePlayerByPx(2)
+    this.movePlayerByPx(10)
   }
 
   movePlayerByPx(px){
