@@ -29,6 +29,7 @@ class EnemyStructure {
             break
         case 4:
             this.float()
+            // this.abduct()
             break
         default:
             this.float()
@@ -90,7 +91,7 @@ class EnemyStructure {
     let ufoScan = document.createElement('div')
     ufoScan.id = 'ufo-scan'
     area.appendChild(ufoScan)
-    structure.style.left = player.style.left
+    structure.style.left = `${parseInt(player.style.left) + 10}px`
     ufoScan.style.left = `${parseInt(structure.style.left) + 20}px`
     structure.style.bottom = "580px"
     ufoScan.style.bottom = structure.style.bottom

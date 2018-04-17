@@ -20,9 +20,12 @@ class Game {
   static renderGameplay(){
     let gameContent = document.getElementById('game-content')
     let area = document.createElement('div')
+    let timer = new Timer
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
+    gameContent.innerHTML += timer.render()
+    timer.increment()
     EventListener.keypress()
     Game.renderEnemyStructure()
     // EventListener.playerMovement()
