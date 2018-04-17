@@ -16,7 +16,7 @@ class EventListener{
 		let player = new Player
 		document.addEventListener('keydown', function(e){
 
-			if (e.which === 32){
+			if (e.which === 32 || e.which === 70){
 				e.preventDefault()
 				// if (document.getElementsByClassName(`arrow`)[0] === undefined){
 					let arrow;
