@@ -1,16 +1,25 @@
 .arrow {
   width: 7px;
   height: 7px;
-  background: blue;
+  background: green;
   position: absolute;
 
 }
 
-#player {
+.player {
   width: 20px;
   height: 20px;
+  background: blue;
+  position: absolute;
+}
+
+.target {
+  width: 10px;
+  height: 10px;
   background: red;
   position: absolute;
+  opacity: 0.5;
+  border-radius: 10px;
 }
 
 #canvas {
