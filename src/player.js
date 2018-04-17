@@ -19,7 +19,7 @@ class Player{
 
   moveRight(){
     let left = this.player.style.left
-    if (parseInt(left) >= 0) {
+    if (parseInt(left) >= 0 && parseInt(left) < 290) {
       this.player.style.left = `${parseInt(left) + 2}px`
     }
   }

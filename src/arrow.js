@@ -1,13 +1,14 @@
 class Arrow{
 
-	constructor(){
+	constructor(user_id){
 		this.arrow = document.createElement('div')
+		this.user_id = user_id
 	}
 
 	shoot(){
 		const area = document.getElementById('canvas')
 		// const arrow = document.createElement('div')
-		this.arrow.className = 'arrow'
+		this.arrow.className = `arrow`
 		this.arrow.style.bottom = '0px'
 		this.arrow.style.left = store[0].player.style.left
 
@@ -16,21 +17,30 @@ class Arrow{
 	}
 
 	moveArrow(){
-		let arrow = document.getElementsByClassName('arrow')[0]
+		let arrow = document.getElementsByClassName(`arrow`)[0]
 		function curve(){
-			if (parseInt(arrow.style.left) < 580 && parseInt(arrow.style.bottom) >= 0) {
-				arrow.style.left = `${parseInt(arrow.style.left) + 3}px`
+			let left = parseInt(arrow.style.left)
+			let bottom = parseInt(arrow.style.bottom)
+			let distance = Math.abs(290 - left)
+			if (left < 580 && bottom >= 0) {
+				arrow.style.left = `${left + 8}px`
 			}
-			if (parseInt(arrow.style.left) < 300) {
-				arrow.style.bottom = `${parseInt(arrow.style.bottom) +3}px`
+			if (left < 290) {
+				arrow.style.bottom = `${bottom + Math.round(distance / 30.0)}px`
 			} else {
-				if (parseInt(arrow.style.bottom) >= 0) {
-					arrow.style.bottom = `${parseInt(arrow.style.bottom) -3}px`
+				if (bottom >= 0) {
+					arrow.style.bottom = `${bottom - Math.round(distance / 30.0)}px`
+				} else{
+					if (arrow.parentNode !== null){
+						arrow.parentNode.removeChild(arrow)
+					}
 				}
 			}
 		}
-		setInterval(curve, 17)
+		setInterval(curve, 22)
+
 	}
+
 
 	// moveArrow(){
 	// 	debugger

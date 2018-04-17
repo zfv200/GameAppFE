@@ -12,24 +12,32 @@ class EventListener{
 	}
 
 
-	static shoot(){
-		document.addEventListener('keydown', function(e){
-			e.preventDefault()
-			if (e.which === 32){
-				let arrow = new Arrow()
-				arrow.shoot()
-			}
-		})
-	}
-
-	static playerMovement(){
+	static keypress(){
 		let player = new Player
 		document.addEventListener('keydown', function(e){
-			if (e.which===39){
+			
+			if (e.which === 32){
+				e.preventDefault()
+				if (document.getElementsByClassName(`arrow`)[0] === undefined){
+					let arrow = new Arrow()
+					arrow.shoot()
+				}
+			} else if (e.which===39){
 				player.moveRight()
 			} else if (e.which===37){
 				player.moveLeft()
 			}
 		})
 	}
+
+	// static playerMovement(){
+	// 	let player = new Player
+	// 	document.addEventListener('keydown', function(e){
+	// 		if (e.which===39){
+	// 			player.moveRight()
+	// 		} else if (e.which===37){
+	// 			player.moveLeft()
+	// 		}
+	// 	})
+	// }
 }

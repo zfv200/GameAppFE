@@ -21,8 +21,8 @@ class Game {
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
-    EventListener.shoot()
-    EventListener.playerMovement()
+    EventListener.keypress()
+    // EventListener.playerMovement()
   }
 
 
