@@ -1,5 +1,6 @@
 let enemyStructureId = 0
 structureStore = []
+let gameOver = false
 
 class EnemyStructure {
   constructor(positionLeft, level){
@@ -13,11 +14,12 @@ class EnemyStructure {
     this.structure.style.bottom = '0px'
     structureStore.push(this)
     area.append(this.structure)
+    this.interval = null
 
 
 
     this.level = level
-    console.log(`LEVEL ${level}`)
+    // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
             break
@@ -33,7 +35,7 @@ class EnemyStructure {
             break
         default:
             this.float()
-            setInterval(new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4), 3)
+            new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
             break
 
     }
@@ -58,7 +60,7 @@ class EnemyStructure {
         }
     }
 
-    setInterval(move, 700 / (startVelocity * 2))
+    this.interval = setInterval(move, 700 / (startVelocity * 2))
   }
 
   jumpAndMove(){
@@ -68,6 +70,7 @@ class EnemyStructure {
     let end = 0 - velocity
     let delta = 1
     let structure = this.structure
+    let structureObject = this
     function move(){
         let bottom = parseInt(structure.style.bottom)
         let left = parseInt(structure.style.left)
@@ -78,9 +81,15 @@ class EnemyStructure {
             velocity = Math.floor(Math.random() * 3 + startVelocity)
             end = 0 - velocity
         }
+        if (!gameOver){
+            structureObject.checkCollision()
+        }
     }
 
-    setInterval(move, 700 / (startVelocity * 2))
+    
+    
+    this.interval = setInterval(move, 700 / (startVelocity * 2))
+
   }
 
 
@@ -113,7 +122,7 @@ class EnemyStructure {
     //   ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
     // }
 
-    setInterval(movement, 20)
+    this.interval = setInterval(movement, 20)
   }
 
   float(){
@@ -122,6 +131,7 @@ class EnemyStructure {
     let structure = this.structure
     let count = Math.floor(Math.random() * 10)
     let dive = false
+    let structureObject = this
     function move(){
         let bottom = parseInt(structure.style.bottom)
         let left = parseInt(structure.style.left)
@@ -152,11 +162,31 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-
+        if (!gameOver){
+            structureObject.checkCollision()
+        }
         }
 
 
-    setInterval(move, 1000 / 10)
+
+    this.interval = setInterval(move, 1000 / 10)
+
 
   }
+
+  checkCollision(){
+        let player = store[0].player
+        if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
+          (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
+          parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
+          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+            gameOver = true
+            console.log('GAME OVER')
+
+            Game.gameOver()
+
+        }
+    }
+
+
 }

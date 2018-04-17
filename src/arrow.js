@@ -48,8 +48,10 @@ class Arrow{
 		let aim = this.aim + parseInt(store[0].player.style.left) -5
 		// console.log(arrow)
 		function curve(){
-			if (Arrow.checkCollision(arrow)!==undefined){
-				Arrow.checkCollision(arrow).structure.remove()
+			let collision = Arrow.checkCollision(arrow)
+			if (collision!==undefined){
+				collision.structure.remove()
+				clearInterval(collision.interval)
 				structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
 				arrow.remove()
 				Game.renderEnemyStructure()

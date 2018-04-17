@@ -64,5 +64,7 @@ class Player{
     this.aim = 150 + ((parseInt(this.target.style.bottom) - 5) * 5)
   }
 
+  
+
 
 }
