@@ -6,7 +6,7 @@ class Player{
     this.player.className = "player"
     this.player.style.bottom = "0px"
     this.player.style.left = "0px"
-    this.aim = 290
+    this.aim = 225
     let canvas = document.getElementById('canvas')
     canvas.appendChild(this.player)
 
@@ -62,7 +62,7 @@ class Player{
     } else if (parseInt(this.target.style.bottom) < 5){
       this.target.style.bottom = '5px'
     }
-    this.aim = 300 - (600 / parseInt(this.target.style.bottom))
+    this.aim = 150 + ((parseInt(this.target.style.bottom) - 5) * 5)
     console.log(this.aim)
   }
 
