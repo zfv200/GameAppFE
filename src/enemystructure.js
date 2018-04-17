@@ -177,7 +177,6 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
-            debugger
             gameOver = true
             console.log('GAME OVER')
             Game.gameOver()
