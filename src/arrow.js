@@ -39,7 +39,7 @@ class Arrow{
 		// let arrow = arrowStore.find(arrowObj=>{return arrowObj.arrow.id.includes(arrowObj.id)}).arrow
 		// let arrow = document.getElementsByClassName(`arrow`)[0]
 		let aim = this.aim + parseInt(store[0].player.style.left) -5
-		console.log(arrow)
+		// console.log(arrow)
 		function curve(){
 			if (Arrow.checkCollision(arrow)!==undefined){
 				Arrow.checkCollision(arrow).structure.remove()
@@ -70,8 +70,8 @@ class Arrow{
 
 			
 
-			console.log(arrow.style.bottom, arrow.style.left)
-			console.log(aim)
+			// console.log(arrow.style.bottom, arrow.style.left)
+			// console.log(aim)
 		}
 
 		let myInterval = setInterval(curve, 22)
