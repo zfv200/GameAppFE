@@ -3,8 +3,6 @@ let timer = null
 
 class Game {
 
-
-
   static renderLogin(){
     let gameContent = document.getElementById('game-content')
     let welcomeScreen = `
@@ -21,6 +19,11 @@ class Game {
   static renderGameplay(){
     let gameContent = document.getElementById('game-content')
     let area = document.createElement('div')
+
+    let highScore = document.createElement('div')
+    highScore.id = "high-score"
+    gameContent.appendChild(highScore)
+
     // timer = new Timer
     area.id = 'canvas'
     gameContent.innerHTML = ''
