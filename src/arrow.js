@@ -21,20 +21,19 @@ class Arrow{
 			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) &&
 					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) &&
 					parseInt(arrow.style.bottom) < 20)
-				// && (parseInt(building.structure.style.left) + 20) >= parseInt(arrow.style.left) &&
-				// parseInt(arrow.style.left) < 20)
 		})
 	}
 
-	// static collide(arrow) {
-	// 	return (parseInt(arrow.style.bottom) < 20) && (parseInt(arrow.style.left) > 300)
-	// }
+	static setIntervalFunc(){
+
+	}
 
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
 		function curve(){
 			if (Arrow.checkCollision(arrow)!==undefined){
 				Arrow.checkCollision(arrow).structure.remove()
+				arrow.remove()
 			}
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)

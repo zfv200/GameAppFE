@@ -27,7 +27,7 @@ class Game {
   }
 
   static renderEnemyStructure(){
-    new EnemyStructure('500px')
+    new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`)
   }
 
 
