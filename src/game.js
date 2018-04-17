@@ -1,3 +1,5 @@
+let level = 1
+
 class Game {
 
 
@@ -27,7 +29,7 @@ class Game {
   }
 
   static renderEnemyStructure(){
-    new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`)
+    new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, level++)
   }
 
 
