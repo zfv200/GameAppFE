@@ -138,10 +138,10 @@ class EnemyStructure {
             } else{
                 structure.style.bottom = `${bottom + velocity}px`
             }
-                
+
         }
         if (dive){
-            
+
             structure.style.bottom = `${bottom - (distanceVert / count)}px`
             structure.style.left = `${left - (distanceHori / count)}px`
         }
@@ -153,7 +153,7 @@ class EnemyStructure {
         // console.log(count, velocity, bottom + velocity)
 
         }
-    
+
 
     setInterval(move, 1000 / 10)
 
