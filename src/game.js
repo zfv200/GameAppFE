@@ -56,16 +56,12 @@ class Game {
     let timer = document.getElementsByClassName(`timer`)[0]
     Adapter.postScore(parseInt(timer.textContent))
     let start = document.createElement('h1')
-    let area = document.createElement('div')
+    let area = document.getElementById('canvas')
     start.id = 'start'
-    start.innerHTML = 'GAME OVER!!!!\n PLAY AGAIN?'
+    start.innerHTML = '<h1 id="start">GAME OVER!!!!\n PLAY AGAIN?</>'
     area.appendChild(start)
-    EventListener.click()
 
   }
 
-  // function start(){
-  //   EventListener.shoot()
-  // }
 
 }

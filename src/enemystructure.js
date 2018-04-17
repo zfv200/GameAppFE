@@ -14,6 +14,7 @@ class EnemyStructure {
     this.structure.style.bottom = '0px'
     structureStore.push(this)
     area.append(this.structure)
+    this.interval = null
 
 
 
@@ -59,7 +60,7 @@ class EnemyStructure {
         }
     }
 
-    setInterval(move, 700 / (startVelocity * 2))
+    this.interval = setInterval(move, 700 / (startVelocity * 2))
   }
 
   jumpAndMove(){
@@ -86,7 +87,7 @@ class EnemyStructure {
     }
     
     
-    setInterval(move, 700 / (startVelocity * 2))
+    this.interval = setInterval(move, 700 / (startVelocity * 2))
   }
 
 
@@ -119,7 +120,7 @@ class EnemyStructure {
     //   ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
     // }
 
-    setInterval(movement, 20)
+    this.interval = setInterval(movement, 20)
   }
 
   float(){
@@ -166,7 +167,7 @@ class EnemyStructure {
 
 
 
-    setInterval(move, 1000 / 10)
+    this.interval = setInterval(move, 1000 / 10)
 
 
   }
@@ -177,10 +178,11 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
-            debugger
             gameOver = true
             console.log('GAME OVER')
+
             Game.gameOver()
+
         }
     }
 

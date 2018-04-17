@@ -13,8 +13,11 @@ class EventListener{
 
 	static click(){
 		document.addEventListener('click', function(e){
+			console.log(e.target)
 			if (e.target.id === 'start'){
-				e.target.parentNode.removeChild(e.target)
+				console.log('STARTING GAME')
+				e.target.remove()
+				document.getElementById('canvas').innerHTML = ''
 				Game.startGame()
 
 			}
