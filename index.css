@@ -37,3 +37,16 @@
 	background: tan;
 	position: absolute;
 }
+
+#ufo-scan {
+  /* width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 40px solid yellow; */
+  width: 7px;
+  height: 50px;
+  background: yellow;
+  position: absolute;
+}

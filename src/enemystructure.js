@@ -40,22 +40,34 @@ class EnemyStructure {
   }
 
   abduct(){
+    const area = document.getElementById('canvas')
     let player = document.getElementsByClassName('player')[0]
     let structure = this.structure
     let ufoScan = document.createElement('div')
     ufoScan.id = 'ufo-scan'
+    area.appendChild(ufoScan)
     structure.style.left = player.style.left
+    ufoScan.style.left = `${parseInt(structure.style.left) + 20}px`
     structure.style.bottom = "580px"
+    ufoScan.style.bottom = structure.style.bottom
+
     function movement(){
       structure.style.left = player.style.left
+      ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
       if (parseInt(structure.style.bottom) > 70) {
+        ufoScan.style.display = 'none'
         structure.style.bottom = `${parseInt(structure.style.bottom) - 2}px`
+        ufoScan.style.bottom = `${parseInt(structure.style.bottom) -52}px`
       } else {
-        const area = document.getElementById('canvas')
-        // area.appendChild(ufoScan)
-        //add abduction movement here
+        ufoScan.style.display = 'block'
+        //ufo reveal
       }
     }
+
+    // function ufoMovement(){
+    //   ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
+    // }
+
     setInterval(movement, 20)
   }
 
