@@ -1,5 +1,6 @@
 let enemyStructureId = 0
 structureStore = []
+let gameOver = false
 
 class EnemyStructure {
   constructor(positionLeft, level){
@@ -17,7 +18,7 @@ class EnemyStructure {
 
 
     this.level = level
-    console.log(`LEVEL ${level}`)
+    // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
             break
@@ -33,7 +34,7 @@ class EnemyStructure {
             break
         default:
             this.float()
-            setInterval(new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4), 3)
+            new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
             break
 
     }
@@ -79,7 +80,9 @@ class EnemyStructure {
             velocity = Math.floor(Math.random() * 3 + startVelocity)
             end = 0 - velocity
         }
-        structureObject.checkCollision()
+        if (!gameOver){
+            structureObject.checkCollision()
+        }
     }
 
 
@@ -156,7 +159,9 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-        structureObject.checkCollision()
+        if (!gameOver){
+            structureObject.checkCollision()
+        }
         }
 
 
@@ -172,7 +177,8 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
-
+            debugger
+            gameOver = true
             console.log('GAME OVER')
             Game.gameOver()
         }

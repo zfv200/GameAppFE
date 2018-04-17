@@ -19,18 +19,36 @@ class Game {
   static renderGameplay(){
     let gameContent = document.getElementById('game-content')
     let area = document.createElement('div')
+
     let highScore = document.createElement('div')
     highScore.id = "high-score"
-    timer = new Timer
+    gameContent.appendChild(highScore)
+
+    // timer = new Timer
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
-    gameContent.appendChild(highScore)
+    // gameContent.innerHTML += timer.render()
+    // timer.increment()
+
+    let start = document.createElement('h1')
+    start.id = 'start'
+    start.innerHTML = 'START GAME'
+    area.appendChild(start)
+    EventListener.click()
+
+    // EventListener.keypress()
+    // Game.renderEnemyStructure()
+    // EventListener.playerMovement()
+  }
+
+  static startGame(){
+    let gameContent = document.getElementById('game-content')
+    timer = new Timer
     gameContent.innerHTML += timer.render()
     timer.increment()
     EventListener.keypress()
     Game.renderEnemyStructure()
-    // EventListener.playerMovement()
   }
 
   static renderEnemyStructure(){
@@ -40,6 +58,13 @@ class Game {
   static gameOver(){
     let timer = document.getElementsByClassName(`timer`)[0]
     Adapter.postScore(parseInt(timer.textContent))
+    let start = document.createElement('h1')
+    let area = document.createElement('div')
+    start.id = 'start'
+    start.innerHTML = 'GAME OVER!!!!\n PLAY AGAIN?'
+    area.appendChild(start)
+    EventListener.click()
+
   }
 
   // function start(){
