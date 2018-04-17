@@ -8,6 +8,13 @@ class Arrow{
 		this.arrow = document.createElement('div')
 		this.arrow.className = `arrow`
 		this.arrow.id = `arrow-${this.id}`
+		this.arrow.innerHTML = `<div class="container">
+				  <div class="red flame"></div>
+				  <div class="orange flame"></div>
+				  <div class="yellow flame"></div>
+				  <div class="white flame"></div>
+				  <div class="blue circle"></div>
+				</div>`
 		this.aim = aim
 		arrowStore.push(this)
 	}
