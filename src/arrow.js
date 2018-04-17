@@ -68,7 +68,7 @@ class Arrow{
 				}
 			}
 
-			
+
 
 			// console.log(arrow.style.bottom, arrow.style.left)
 			// console.log(aim)
