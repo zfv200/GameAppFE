@@ -1,17 +1,20 @@
 let arrowId = 0
+arrowStore = []
 
 class Arrow{
 
 	constructor(aim){
 		this.id = ++arrowId
 		this.arrow = document.createElement('div')
+		this.arrow.className = `arrow`
+		this.arrow.id = `arrow-${this.id}`
 		this.aim = aim
+		arrowStore.push(this)
 	}
 
 	shoot(){
 		const area = document.getElementById('canvas')
 		// const arrow = document.createElement('div')
-		this.arrow.className = `arrow`
 		this.arrow.style.bottom = store[0].target.style.bottom
 		this.arrow.style.left = store[0].target.style.left
 
@@ -29,9 +32,11 @@ class Arrow{
 	}
 
 	moveArrow(){
-		let arrow = document.getElementsByClassName(`arrow`)[0]
+		let arrow = this.arrow
+		// let arrow = arrowStore.find(arrowObj=>{return arrowObj.arrow.id.includes(arrowObj.id)}).arrow
+		// let arrow = document.getElementsByClassName(`arrow`)[0]
 		let aim = this.aim + parseInt(store[0].player.style.left) -5
-		console.log(aim)
+		console.log(arrow)
 		function curve(){
 			if (Arrow.checkCollision(arrow)!==undefined){
 				Arrow.checkCollision(arrow).structure.remove()
