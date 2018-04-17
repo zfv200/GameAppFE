@@ -16,9 +16,26 @@ class Arrow{
 		this.moveArrow()
 	}
 
+	static checkCollision(arrow){
+		return structureStore.find(building=>{
+			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) &&
+					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) &&
+					parseInt(arrow.style.bottom) < 20)
+				// && (parseInt(building.structure.style.left) + 20) >= parseInt(arrow.style.left) &&
+				// parseInt(arrow.style.left) < 20)
+		})
+	}
+
+	// static collide(arrow) {
+	// 	return (parseInt(arrow.style.bottom) < 20) && (parseInt(arrow.style.left) > 300)
+	// }
+
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
 		function curve(){
+			if (Arrow.checkCollision(arrow)!==undefined){
+				Arrow.checkCollision(arrow).structure.remove()
+			}
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
 			let distance = Math.abs(290 - left)
@@ -33,10 +50,10 @@ class Arrow{
 				} else{
 					if (arrow.parentNode !== null){
 						arrow.parentNode.removeChild(arrow)
+						}
 					}
 				}
 			}
-		}
 		setInterval(curve, 22)
 
 	}

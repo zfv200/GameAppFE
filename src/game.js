@@ -22,7 +22,12 @@ class Game {
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
     EventListener.keypress()
+    Game.renderEnemyStructure()
     // EventListener.playerMovement()
+  }
+
+  static renderEnemyStructure(){
+    new EnemyStructure('500px')
   }
 
 

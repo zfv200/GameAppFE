@@ -6,6 +6,13 @@
 
 }
 
+.enemy-structure {
+  width: 20px;
+  height: 20px;
+  background: teal;
+  position: absolute;
+}
+
 #player {
   width: 20px;
   height: 20px;
