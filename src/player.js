@@ -53,11 +53,11 @@ class Player{
 
   moveAimByPx(px){
     let targetBottom = parseInt(this.target.style.bottom)
-    if (targetBottom >= 5 && targetBottom <= 60) {
+    if (targetBottom >= 5 && targetBottom <= 35) {
       this.target.style.bottom = `${targetBottom + px}px`
     }
     if (parseInt(this.target.style.bottom)> 35){
-      // this.target.style.bottom = '35px'
+      this.target.style.bottom = '35px'
     } else if (parseInt(this.target.style.bottom) < 5){
       this.target.style.bottom = '5px'
     }
