@@ -21,14 +21,14 @@ class Adapter {
     })
   }
 
-  // static bestPlayer(){
-  //   fetch(base_url + 'users', {
-  //     headers: {'Content-Type': 'application/json'},
-  //     method: 'get'
-  //   }).then(r=>r.json()).then(json=>{
-  //     return json.sort(function(a,b){return (a.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0])-(b.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0])})[0].username
-  //   })
-  // }
+  static bestPlayer(){
+    fetch(base_url + 'users', {
+      headers: {'Content-Type': 'application/json'},
+      method: 'get'
+    }).then(r=>r.json()).then(json=>{
+      console.log(json.sort(function(a,b){return (a.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0])-(b.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0])})[0].username)
+    })
+  }
 
   static createUser(usernameInput){
     fetch(base_url + 'users', {
