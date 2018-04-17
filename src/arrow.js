@@ -22,7 +22,8 @@ class Arrow{
 		return structureStore.find(building=>{
 			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) &&
 					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) &&
-					parseInt(arrow.style.bottom) < 20)
+					parseInt(arrow.style.bottom) < (parseInt(building.structure.style.bottom) + 20) &&
+					parseInt(arrow.style.bottom) > parseInt(building.structure.style.bottom))
 		})
 	}
 
@@ -50,10 +51,10 @@ class Arrow{
 				} else{
 					if (arrow.parentNode !== null){
 						arrow.parentNode.removeChild(arrow)
-						}
 					}
 				}
 			}
+			
 
 			console.log(arrow.style.bottom, arrow.style.left)
 		}
