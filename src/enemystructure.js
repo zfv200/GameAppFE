@@ -13,6 +13,9 @@ class EnemyStructure {
     this.structure.style.bottom = '0px'
     structureStore.push(this)
     area.append(this.structure)
+
+
+
     this.level = level
     console.log(`LEVEL ${level}`)
     switch(this.level){
@@ -79,6 +82,39 @@ class EnemyStructure {
     setInterval(move, 700 / (startVelocity * 2))
   }
 
+
+  abduct(){
+    const area = document.getElementById('canvas')
+    let player = document.getElementsByClassName('player')[0]
+    let structure = this.structure
+    let ufoScan = document.createElement('div')
+    ufoScan.id = 'ufo-scan'
+    area.appendChild(ufoScan)
+    structure.style.left = player.style.left
+    ufoScan.style.left = `${parseInt(structure.style.left) + 20}px`
+    structure.style.bottom = "580px"
+    ufoScan.style.bottom = structure.style.bottom
+
+    function movement(){
+      structure.style.left = player.style.left
+      ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
+      if (parseInt(structure.style.bottom) > 70) {
+        ufoScan.style.display = 'none'
+        structure.style.bottom = `${parseInt(structure.style.bottom) - 2}px`
+        ufoScan.style.bottom = `${parseInt(structure.style.bottom) -52}px`
+      } else {
+        ufoScan.style.display = 'block'
+        //ufo reveal
+      }
+    }
+
+    // function ufoMovement(){
+    //   ufoScan.style.left = `${parseInt(structure.style.left) + 6}px`
+    // }
+
+    setInterval(movement, 20)
+  }
+
   float(){
     this.structure.style.bottom = '50px'
     let velocity = Math.floor(Math.random() * 20) - 9
@@ -120,7 +156,6 @@ class EnemyStructure {
     
 
     setInterval(move, 1000 / 10)
+
   }
 
-
-}
