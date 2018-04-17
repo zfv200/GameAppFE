@@ -16,9 +16,6 @@ class Arrow{
 		this.moveArrow()
 	}
 
-	moveAim(){
-
-	}
 
 	moveArrow(){
 		let arrow = document.getElementsByClassName(`arrow`)[0]
