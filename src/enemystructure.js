@@ -13,7 +13,8 @@ class EnemyStructure {
     this.structure.style.bottom = '0px'
     structureStore.push(this)
     area.append(this.structure)
-    this.jump()
+    // this.jump()
+    this.abduct()
   }
 
   jump(){
@@ -36,6 +37,26 @@ class EnemyStructure {
     }
 
     setInterval(move, 700 / (startVelocity * 2))
+  }
+
+  abduct(){
+    let player = document.getElementsByClassName('player')[0]
+    let structure = this.structure
+    let ufoScan = document.createElement('div')
+    ufoScan.id = 'ufo-scan'
+    structure.style.left = player.style.left
+    structure.style.bottom = "580px"
+    function movement(){
+      structure.style.left = player.style.left
+      if (parseInt(structure.style.bottom) > 70) {
+        structure.style.bottom = `${parseInt(structure.style.bottom) - 2}px`
+      } else {
+        const area = document.getElementById('canvas')
+        // area.appendChild(ufoScan)
+        //add abduction movement here
+      }
+    }
+    setInterval(movement, 20)
   }
 
 
