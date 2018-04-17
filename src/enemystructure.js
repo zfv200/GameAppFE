@@ -85,9 +85,11 @@ class EnemyStructure {
             structureObject.checkCollision()
         }
     }
+
     
     
     this.interval = setInterval(move, 700 / (startVelocity * 2))
+
   }
 
 
@@ -186,5 +188,5 @@ class EnemyStructure {
         }
     }
 
-  
+
 }
