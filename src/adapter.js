@@ -16,6 +16,7 @@ class Adapter {
       if (newUserJson===undefined) {
         Adapter.createUser(usernameInput)
       } else {
+        console.log('hi')
         new User(newUserJson)
       }
     })
@@ -38,6 +39,7 @@ class Adapter {
     }).then(r=>r.json()).then(json=>{
       new User(json)
     })
+    
   }
 
   static postScore(score){
