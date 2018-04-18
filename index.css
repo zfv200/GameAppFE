@@ -5,6 +5,44 @@
 
 }
 
+/* images: */
+
+.level-one-image {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  content: url(images/resized.png)
+}
+
+.level-two-image {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  content: url(images/monster-resized.png)
+}
+
+.defeated {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  content: url(images/splatter-resized.png)
+}
+
+#one {
+  width: 18px;
+  height: 38px;
+  background: brown;
+  position: absolute;
+}
+
+#two {
+
+}
+
+#three {
+
+}
+
 
 .enemy-structure {
   width: 20px;
@@ -42,7 +80,7 @@
   height: 40px;
   position: absolute;
   left: 50px;
-  bottom: 40px;
+  bottom: 20px;
 }
 
 #canvas {

@@ -62,7 +62,7 @@ class Game {
     start.id = 'start'
     start.innerHTML = '<h1 id="start">GAME OVER!!!!\n PLAY AGAIN?</>'
     area.appendChild(start)
-
+    
   }
 
 

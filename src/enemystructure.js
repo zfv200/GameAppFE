@@ -22,19 +22,23 @@ class EnemyStructure {
     // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
-          
+            this.structure.className = "level-one-image"
             break
         case 2:
+            this.structure.className = "level-two-image"
             this.jump()
             break
         case 3:
+            this.structure.className = "level-two-image"
             this.jumpAndMove()
             break
         case 4:
+            this.structure.className = "level-two-image"
             this.float()
             // this.abduct()
             break
         default:
+            this.structure.className = "level-two-image"
             this.float()
             new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
             break
@@ -181,6 +185,7 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+            player.className = "defeated"
             gameOver = true
             console.log('GAME OVER')
 

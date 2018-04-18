@@ -50,10 +50,12 @@ class Arrow{
 		function curve(){
 			let collision = Arrow.checkCollision(arrow)
 			if (collision!==undefined){
-				collision.structure.remove()
+				//timeout funcs
+				setTimeout(function(){collision.structure.remove()}, 2000)
+				setTimeout(function(){arrow.remove()}, 2000)
+				//
 				clearInterval(collision.interval)
 				structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
-				arrow.remove()
 				Game.renderEnemyStructure()
 				clearInterval(myInterval)
 			}
