@@ -167,7 +167,7 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-        if (!gameOver){
+        if (!gameOver && structureStore.length>0){
             structureObject.checkCollision()
         }
         }
@@ -184,8 +184,12 @@ class EnemyStructure {
         if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
-          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom) &&
+          structureStore.length>0) {
+            debugger;
+            console.log("wut")
             player.className = "defeated"
+            level = 0
             gameOver = true
             console.log('GAME OVER')
 
