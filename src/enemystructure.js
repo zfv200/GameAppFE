@@ -22,6 +22,7 @@ class EnemyStructure {
     // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
+          
             break
         case 2:
             this.jump()
@@ -86,8 +87,8 @@ class EnemyStructure {
         }
     }
 
-    
-    
+
+
     this.interval = setInterval(move, 700 / (startVelocity * 2))
 
   }
