@@ -40,6 +40,10 @@ h1 {
   opacity: .8;
 }
 
+#scoreboard {
+  float: right;
+}
+
 .defeated {
   width: 100px;
   height: 100px;
