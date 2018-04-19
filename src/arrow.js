@@ -64,6 +64,8 @@ class Arrow{
 				//
 				clearInterval(collision.interval)
 				collision.alive = false
+				let target = document.getElementsByClassName(`timer`)[0]
+			    target.innerHTML = `<h1>${parseInt(target.innerText)+5}</h1>`
 				// console.log('KILLED', collision.id)
 				// structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
 				Game.renderEnemyStructure()
