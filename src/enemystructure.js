@@ -1,6 +1,7 @@
 let enemyStructureId = 0
 structureStore = []
 let gameOver = false
+backupStore = []
 
 class EnemyStructure {
   constructor(positionLeft, level){
@@ -13,7 +14,9 @@ class EnemyStructure {
     this.structure.style.left = this.positionLeft
     this.structure.style.bottom = '0px'
     structureStore.push(this)
+    backupStore.push(this)
     area.append(this.structure)
+    this.alive = true
     this.interval = null
 
 
@@ -22,25 +25,35 @@ class EnemyStructure {
     // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
-          
+            this.structure.className = "level-one-image"
             break
         case 2:
+            this.structure.className = "level-two-image"
             this.jump()
             break
         case 3:
+            this.structure.className = "level-two-image"
             this.jumpAndMove()
             break
         case 4:
+            this.structure.className = "level-two-image"
             this.float()
             // this.abduct()
             break
         default:
+            this.structure.className = "level-two-image"
             this.float()
-            new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
+            if (EnemyStructure.countAlive() < 25){
+                new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
+            }
             break
 
     }
 
+  }
+
+  static countAlive(){
+    return structureStore.filter(enemy=>enemy.alive).length
   }
 
   jump(){
@@ -163,9 +176,8 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-        if (!gameOver){
+
             structureObject.checkCollision()
-        }
         }
 
 
@@ -177,14 +189,22 @@ class EnemyStructure {
 
   checkCollision(){
         let player = store[0].player
-        if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
+        if (this.alive && parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
-            gameOver = true
-            console.log('GAME OVER')
-
-            Game.gameOver()
+            let canvas = document.getElementById('canvas')
+            let blood = document.createElement('div')
+            blood.className = "aftermath"
+            blood.style.left = `${parseInt(player.style.left) + Math.round(Math.random() * 100) - 50}px`
+            blood.style.bottom = `${parseInt(player.style.bottom) + Math.round(Math.random() * 100) - 50}px`
+            canvas.appendChild(blood)
+            level = 0
+            if (gameOver === false) {
+              gameOver = true
+              console.log('GAME OVER')
+              Game.gameOver()
+            }
 
         }
     }

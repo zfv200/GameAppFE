@@ -12,19 +12,19 @@ class Player{
 
     this.target = document.createElement('div')
     this.target.className = 'target'
-    this.target.style.bottom = '20px'
-    this.target.style.left = '25px'
+    this.target.style.bottom = '60px'
+    this.target.style.left = '105px'
     canvas.appendChild(this.target)
 
     store.push(this)
   }
 
   moveAimUp(){
-    this.moveAimByPx(2)
+    this.moveAimByPx(4)
   }
 
   moveAimDown(){
-    this.moveAimByPx(-2)
+    this.moveAimByPx(-4)
   }
 
   moveLeft(){
@@ -38,33 +38,30 @@ class Player{
   movePlayerByPx(px){
     let playerLeft = parseInt(this.player.style.left)
     let targetLeft = parseInt(this.target.style.left)
-    if (playerLeft >= 0 && playerLeft <= 290) {
+    if (playerLeft >= 0){
       this.player.style.left = `${playerLeft + px}px`
       this.target.style.left = `${targetLeft + px}px`
     }
-    if (parseInt(this.player.style.left) > 290){
-      this.player.style.left = `290px`
-      this.target.style.left = `315px`
-    } else if (parseInt(this.player.style.left) < 0){
+    if (parseInt(this.player.style.left) < 0){
       this.player.style.left = `0px`
-      this.target.style.left = `25px`
+      this.target.style.left = `105px`
     }
   }
 
   moveAimByPx(px){
     let targetBottom = parseInt(this.target.style.bottom)
-    if (targetBottom >= 5 && targetBottom <= 35) {
+    if (targetBottom >= 35 && targetBottom <= 85) {
       this.target.style.bottom = `${targetBottom + px}px`
     }
-    if (parseInt(this.target.style.bottom)> 35){
+    if (parseInt(this.target.style.bottom)> 85){
+      this.target.style.bottom = '85px'
+    } else if (parseInt(this.target.style.bottom) < 35){
       this.target.style.bottom = '35px'
-    } else if (parseInt(this.target.style.bottom) < 5){
-      this.target.style.bottom = '5px'
     }
-    this.aim = 150 + ((parseInt(this.target.style.bottom) - 5) * 5)
+    this.aim = 150 + ((parseInt(this.target.style.bottom) - 35) * 5)
   }
 
-  
+
 
 
 }

@@ -15,7 +15,6 @@ class Timer{
 
   increment(){
     let target = document.getElementsByClassName(`timer`)[0]
-    target.innerHTML = `<h1>${parseInt(target.innerText)+1}</h1>`
-    setInterval(this.increment, 1000)
+    target.innerHTML = `<h1>${parseInt(target.innerText)-1}</h1>`
   }
 }
