@@ -43,7 +43,7 @@ class EnemyStructure {
         default:
             this.structure.className = "level-two-image"
             this.float()
-            new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
+            new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
             break
 
     }
@@ -187,11 +187,12 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+            let canvas = document.getElementById('canvas')
             let blood = document.createElement('div')
             blood.className = "aftermath"
             blood.style.left = `${parseInt(player.style.left) + Math.round(Math.random() * 100) - 50}px`
             blood.style.bottom = `${parseInt(player.style.bottom) + Math.round(Math.random() * 100) - 50}px`
-            document.body.appendChild(blood)
+            canvas.appendChild(blood)
             level = 0
             if (gameOver === false) {
               gameOver = true

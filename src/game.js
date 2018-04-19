@@ -58,12 +58,11 @@ class Game {
 
 
   static renderEnemyStructure(){
-    new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, level++)
+    new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, level++)
   }
 
   static gameOver(){
     clearInterval(timerInterval)
-    
     let start = document.createElement('h1')
     let area = document.getElementById('canvas')
     start.innerHTML = '<h1 id="restart">GAME OVER!!!!\n PLAY AGAIN?</>'

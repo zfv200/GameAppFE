@@ -90,13 +90,13 @@ class Arrow{
 			let left = parseInt(arrow.style.left)
 			let bottom = parseInt(arrow.style.bottom)
 			let distance = Math.abs(aim - left)
-			if (left <= 580 && bottom >= 0) {
+			if (left <= 980 && bottom >= 0) {
 				arrow.style.left = `${left + 8}px`
 			}
 			if (left < aim) {
 				arrow.style.bottom = `${bottom + Math.round(distance / 30.0)}px`
 			} else {
-				if (bottom >= 0 && left < 580) {
+				if (bottom >= 0 && left < 980) {
 					arrow.style.bottom = `${bottom - Math.round(distance / 30.0)}px`
 				} else{
 					if (arrow.parentNode !== null){
