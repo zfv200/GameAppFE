@@ -38,15 +38,11 @@ class Player{
   movePlayerByPx(px){
     let playerLeft = parseInt(this.player.style.left)
     let targetLeft = parseInt(this.target.style.left)
-    if (playerLeft >= 0){// && playerLeft <= 400) {
+    if (playerLeft >= 0){
       this.player.style.left = `${playerLeft + px}px`
       this.target.style.left = `${targetLeft + px}px`
     }
-    if (parseInt(this.player.style.left) > 400){
-      temp = 1
-      // this.player.style.left = `400px`
-      // this.target.style.left = `505px`
-    } else if (parseInt(this.player.style.left) < 0){
+    if (parseInt(this.player.style.left) < 0){
       this.player.style.left = `0px`
       this.target.style.left = `105px`
     }
