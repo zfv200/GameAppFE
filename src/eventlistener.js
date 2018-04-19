@@ -34,13 +34,7 @@ class EventListener{
 	}
 
 	static playerKeys(e){
-		let player;
-			if (store.length===0){
-				player = new Player
-			}
-			else {
-				player = store[0]
-			}
+		let player = store[0]
 			if (e.which === 32 || e.which === 70){
 				e.preventDefault()
 				// if (document.getElementsByClassName(`arrow`)[0] === undefined){

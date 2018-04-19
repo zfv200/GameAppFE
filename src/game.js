@@ -52,6 +52,7 @@ class Game {
     timerInterval = setInterval(timer.increment, 1000)
     Game.renderEnemyStructure()
     gameOver = false
+    new Player
   }
 
 
