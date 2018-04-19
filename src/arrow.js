@@ -49,7 +49,7 @@ class Arrow{
 		// console.log(arrow)
 		function curve(){
 			let collision = Arrow.checkCollision(arrow)
-			if (collision!==undefined){
+			if (collision!==undefined && !gameOver){
 				arrow.innerHTML = `<div class="c2"><div class="container">
 						  <div class="r2 f2"></div>
 						  <div class="o2 f2"></div>
@@ -64,6 +64,7 @@ class Arrow{
 				//
 				clearInterval(collision.interval)
 				collision.alive = false
+
 				let target = document.getElementsByClassName(`timer`)[0]
 			    target.innerHTML = `<h1>${parseInt(target.innerText)+5}</h1>`
 				// console.log('KILLED', collision.id)
