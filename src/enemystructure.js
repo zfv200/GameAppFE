@@ -43,11 +43,17 @@ class EnemyStructure {
         default:
             this.structure.className = "level-two-image"
             this.float()
-            new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
+            if (EnemyStructure.countAlive() < 25){
+                new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
+            }
             break
 
     }
 
+  }
+
+  static countAlive(){
+    return structureStore.filter(enemy=>enemy.alive).length
   }
 
   jump(){

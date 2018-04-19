@@ -37,6 +37,7 @@ h1 {
   position: absolute;
   content: url(images/splatter-resized.png);
   z-index: 1;
+  opacity: .8;
 }
 
 .defeated {
