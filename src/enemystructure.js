@@ -22,18 +22,23 @@ class EnemyStructure {
     // console.log(`LEVEL ${level}`)
     switch(this.level){
         case 1:
+            this.structure.className = "level-one-image"
             break
         case 2:
+            this.structure.className = "level-two-image"
             this.jump()
             break
         case 3:
+            this.structure.className = "level-two-image"
             this.jumpAndMove()
             break
         case 4:
+            this.structure.className = "level-two-image"
             this.float()
             // this.abduct()
             break
         default:
+            this.structure.className = "level-two-image"
             this.float()
             new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, 4)
             break
@@ -86,8 +91,8 @@ class EnemyStructure {
         }
     }
 
-    
-    
+
+
     this.interval = setInterval(move, 700 / (startVelocity * 2))
 
   }
@@ -162,7 +167,7 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-        if (!gameOver){
+        if (!gameOver && structureStore.length>0){
             structureObject.checkCollision()
         }
         }
@@ -179,7 +184,12 @@ class EnemyStructure {
         if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
-          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom) &&
+          structureStore.length>0) {
+            debugger;
+            console.log("wut")
+            player.className = "defeated"
+            level = 0
             gameOver = true
             console.log('GAME OVER')
 

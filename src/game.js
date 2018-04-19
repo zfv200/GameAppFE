@@ -1,5 +1,6 @@
 let level = 1
 let timer = null
+timerInterval = null
 
 class Game {
 
@@ -14,6 +15,8 @@ class Game {
       </form>
       </div>`
     gameContent.innerHTML = welcomeScreen
+    EventListener.click()
+
   }
 
   static renderGameplay(){
@@ -29,12 +32,13 @@ class Game {
     gameContent.appendChild(highScore)
     // gameContent.innerHTML += timer.render()
     // timer.increment()
+      let start = document.createElement('h1')
+      start.id = 'start'
+      start.innerHTML = 'START GAME'
+      area.appendChild(start)
+    timer = new Timer
+    gameContent.innerHTML += timer.render()
 
-    let start = document.createElement('h1')
-    start.id = 'start'
-    start.innerHTML = 'START GAME'
-    area.appendChild(start)
-    EventListener.click()
 
     // EventListener.keypress()
     // Game.renderEnemyStructure()
@@ -42,25 +46,27 @@ class Game {
   }
 
   static startGame(){
-    let gameContent = document.getElementById('game-content')
-    timer = new Timer
-    gameContent.innerHTML += timer.render()
-    timer.increment()
+    Game.renderGameplay()
+    document.getElementById('start').remove()
     EventListener.keypress()
+    timerInterval = setInterval(timer.increment, 1000)
     Game.renderEnemyStructure()
+    gameOver = false
+    new Player
   }
+
+
 
   static renderEnemyStructure(){
     new EnemyStructure(`${Math.floor(Math.random() * (580-450) + 450)}px`, level++)
   }
 
   static gameOver(){
-    let timer = document.getElementsByClassName(`timer`)[0]
-    Adapter.postScore(parseInt(timer.textContent))
+    clearInterval(timerInterval)
+    level = 1
     let start = document.createElement('h1')
     let area = document.getElementById('canvas')
-    start.id = 'start'
-    start.innerHTML = '<h1 id="start">GAME OVER!!!!\n PLAY AGAIN?</>'
+    start.innerHTML = '<h1 id="restart">GAME OVER!!!!\n PLAY AGAIN?</>'
     area.appendChild(start)
 
   }
