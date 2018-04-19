@@ -33,7 +33,7 @@ class Arrow{
 
 	static checkCollision(arrow){
 		return structureStore.find(building=>{
-			return (parseInt(building.structure.style.left) <= parseInt(arrow.style.left) + 4 &&
+			return (building.alive && parseInt(building.structure.style.left) <= parseInt(arrow.style.left) + 4 &&
 					(parseInt(building.structure.style.left) + 20) > parseInt(arrow.style.left) + 4 &&
 					parseInt(arrow.style.bottom) + 4 < (parseInt(building.structure.style.bottom) + 20) &&
 					parseInt(arrow.style.bottom) + 4 > parseInt(building.structure.style.bottom))
@@ -81,7 +81,9 @@ class Arrow{
 				setTimeout(function(){arrow.remove()}, 1500)
 				//
 				clearInterval(collision.interval)
-				structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
+				collision.alive = false
+				// console.log('KILLED', collision.id)
+				// structureStore.splice(structureStore.indexOf(Arrow.checkCollision(arrow), 1))
 				Game.renderEnemyStructure()
 				clearInterval(myInterval)
 			}

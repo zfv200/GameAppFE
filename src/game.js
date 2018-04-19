@@ -63,7 +63,7 @@ class Game {
 
   static gameOver(){
     clearInterval(timerInterval)
-    level = 1
+    
     let start = document.createElement('h1')
     let area = document.getElementById('canvas')
     start.innerHTML = '<h1 id="restart">GAME OVER!!!!\n PLAY AGAIN?</>'

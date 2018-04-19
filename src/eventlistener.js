@@ -22,7 +22,12 @@ class EventListener{
 			} else if (e.target.id === 'restart'){
 				let gameContent = document.getElementById('game-content')
 				gameContent.innerHTML = ''
-				structureStore.forEach(enemy=>{clearInterval(enemy.interval)})
+				level = 1
+				structureStore.forEach(enemy=>{
+					clearInterval(enemy.interval)
+					enemy.alive = false
+					// console.log('KILLED', enemy.id)
+					})
 				structureStore = []
 				store = []
 				document.removeEventListener('keydown', EventListener.playerKeys, true)

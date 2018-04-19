@@ -1,6 +1,7 @@
 let enemyStructureId = 0
 structureStore = []
 let gameOver = false
+backupStore = []
 
 class EnemyStructure {
   constructor(positionLeft, level){
@@ -13,7 +14,9 @@ class EnemyStructure {
     this.structure.style.left = this.positionLeft
     this.structure.style.bottom = '0px'
     structureStore.push(this)
+    backupStore.push(this)
     area.append(this.structure)
+    this.alive = true
     this.interval = null
 
 
@@ -181,14 +184,12 @@ class EnemyStructure {
 
   checkCollision(){
         let player = store[0].player
-        if (parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
+        if (this.alive && parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom) &&
           structureStore.length>0) {
-            debugger;
-            console.log("wut")
-            player.className = "defeated"
+                        player.className = "defeated"
             level = 0
             gameOver = true
             console.log('GAME OVER')
