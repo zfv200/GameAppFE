@@ -24,12 +24,15 @@ class Game {
     let area = document.createElement('div')
     let highScore = document.createElement('div')
     highScore.id = "high-score"
+    let board = document.createElement('div')
+    board.id = "scoreboard"
 
     // timer = new Timer
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
     gameContent.appendChild(highScore)
+    gameContent.appendChild(board)
     // gameContent.innerHTML += timer.render()
     // timer.increment()
       let start = document.createElement('h1')
@@ -37,7 +40,9 @@ class Game {
       start.innerHTML = 'START GAME'
       area.appendChild(start)
     timer = new Timer
+    new Leaderboard
     gameContent.innerHTML += timer.render()
+
 
 
     // EventListener.keypress()
@@ -53,6 +58,7 @@ class Game {
     Game.renderEnemyStructure()
     gameOver = false
     new Player
+    Adapter.leaderboard()
   }
 
 
@@ -62,12 +68,14 @@ class Game {
   }
 
   static gameOver(){
+    // scoreStore = []
     clearInterval(timerInterval)
     let start = document.createElement('h1')
     let area = document.getElementById('canvas')
     start.innerHTML = '<h1 id="restart">GAME OVER!!!!\n PLAY AGAIN?</>'
     area.appendChild(start)
-
+    let score = parseInt(document.getElementsByClassName('timer')[0].innerText)
+    Adapter.postScore(score)
   }
 
 
