@@ -18,14 +18,24 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  content: url(images/monster-resized.png)
+  content: url(images/monster-resized.png);
+  z-index: 3;
+}
+
+.aftermath {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  content: url(images/splatter-resized.png);
+  z-index: 1;
 }
 
 .defeated {
   width: 100px;
   height: 100px;
   position: absolute;
-  content: url(images/splatter-resized.png)
+  content: url(images/splatter-resized.png);
+  z-index: 2;
 }
 
 /* other: */
@@ -35,6 +45,7 @@
   height: 20px;
   background: teal;
   position: absolute;
+  z-index: 1;
 }
 
 
@@ -43,6 +54,7 @@
   height: 20px;
   background: blue;
   position: absolute;
+  z-index: 2
 }
 
 .target {

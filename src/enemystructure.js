@@ -170,9 +170,8 @@ class EnemyStructure {
             count = Math.floor(Math.random() * 5)
         }
         // console.log(count, velocity, bottom + velocity)
-        if (!gameOver && structureStore.length>0){
+
             structureObject.checkCollision()
-        }
         }
 
 
@@ -187,14 +186,18 @@ class EnemyStructure {
         if (this.alive && parseInt(this.structure.style.left) <= parseInt(player.style.left) + 10 &&
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
-          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom) &&
-          structureStore.length>0) {
-                        player.className = "defeated"
+          parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
+            let blood = document.createElement('div')
+            blood.className = "aftermath"
+            blood.style.left = `${parseInt(player.style.left) + Math.round(Math.random() * 100) - 50}px`
+            blood.style.bottom = `${parseInt(player.style.bottom) + Math.round(Math.random() * 100) - 50}px`
+            document.body.appendChild(blood)
             level = 0
-            gameOver = true
-            console.log('GAME OVER')
-
-            Game.gameOver()
+            if (gameOver === false) {
+              gameOver = true
+              console.log('GAME OVER')
+              Game.gameOver()
+            }
 
         }
     }
