@@ -42,6 +42,7 @@ class Game {
     timer = new Timer
     new Leaderboard
     gameContent.innerHTML += timer.render()
+    Adapter.leaderboard()
 
 
 
@@ -58,7 +59,7 @@ class Game {
     Game.renderEnemyStructure()
     gameOver = false
     new Player
-    Adapter.leaderboard()
+    // Adapter.leaderboard()
   }
 
 
