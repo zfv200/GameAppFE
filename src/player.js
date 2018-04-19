@@ -13,7 +13,7 @@ class Player{
     this.target = document.createElement('div')
     this.target.className = 'target'
     this.target.style.bottom = '20px'
-    this.target.style.left = '25px'
+    this.target.style.left = '35px'
     canvas.appendChild(this.target)
 
     store.push(this)
@@ -64,7 +64,7 @@ class Player{
     this.aim = 150 + ((parseInt(this.target.style.bottom) - 5) * 5)
   }
 
-  
+
 
 
 }

@@ -50,11 +50,12 @@
 
 
 .player {
-  width: 20px;
-  height: 20px;
-  background: blue;
+  width: 60px;
+  height: 60px;
+  /* background: blue; */
   position: absolute;
-  z-index: 2
+  z-index: 2;
+  background-image: url(images/squirrel-resized.png);
 }
 
 .target {

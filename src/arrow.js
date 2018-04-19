@@ -22,8 +22,8 @@ class Arrow{
 	shoot(){
 		const area = document.getElementById('canvas')
 		// const arrow = document.createElement('div')
-		this.arrow.style.bottom = store[0].target.style.bottom
-		this.arrow.style.left = store[0].target.style.left
+		this.arrow.style.bottom = "40px"
+		this.arrow.style.left = `${parseInt(store[0].player.style.left)+60}px`
 
 		area.appendChild(this.arrow)
 		this.moveArrow()
@@ -58,25 +58,7 @@ class Arrow{
 						  <div class="blue circle"></div>
 							</div>
 						</div>`
-				//timeout funcs
-				// setTimeout(function(){
-					// arrow.innerHTML = `<div class="c2">
-					// 		  <div class="r2 f2"></div>
-					// 		  <div class="o2 f2"></div>
-					// 		  <div class="y2 f2"></div>
-					// 		  <div class="w2 f2"></div>
-					// 		  <div class="b2 f2"></div>
-					// 		</div>`
-				// }, 800)
-				// setTimeout(function(){
-				// 	arrow.innerHTML = `<div class="c3">
-				// 			  <div class="r3 f3"></div>
-				// 			  <div class="o3 f3"></div>
-				// 			  <div class="y3 f3"></div>
-				// 			  <div class="w3 f3"></div>
-				// 			  <div class="b3 f3"></div>
-				// 			</div>`
-				// }, 1200)
+
 				setTimeout(function(){collision.structure.remove()}, 1500)
 				setTimeout(function(){arrow.remove()}, 1500)
 				//
