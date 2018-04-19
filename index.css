@@ -59,12 +59,14 @@
 }
 
 .target {
-  width: 10px;
-  height: 10px;
-  background: red;
+  width: 30px;
+  height: 30px;
+  /*background: red;*/
   position: absolute;
-  opacity: 0.5;
-  border-radius: 10px;
+  /*opacity: 0.5;*/
+  /*border-radius: 10px;*/
+  z-index:2;
+  content: url(images/crosshairs_resized.png);
 }
 
 .timer{
