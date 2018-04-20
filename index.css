@@ -1,9 +1,13 @@
 h1 {
   text-align: center;
 }
+body {
+  background-color: #90ee90;
+}
 
 #start, #restart {
   color: red;
+  font-family: "Luminari", fantasy;
 }
 
 
@@ -46,6 +50,7 @@ h1 {
 
 #scoreboard {
   float: right;
+  font-family: "Luminari", fantasy;
 }
 
 .defeated {
@@ -92,6 +97,7 @@ h1 {
   height: 40px;
   position: absolute;
   left: 1020px;
+  font-family: "Luminari", fantasy;
 }
 
 #high-score {
@@ -100,6 +106,7 @@ h1 {
   position: absolute;
   left: 50px;
   bottom: 20px;
+  font-family: "Luminari", fantasy;
 }
 
 #canvas {

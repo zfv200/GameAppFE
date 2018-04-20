@@ -6,7 +6,7 @@ class User {
     this.username = json.username
     current_user = this
     if (json.completed_games.length > 0){
-    	this.high_score = `${json.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0].score} seconds!`
+    	this.high_score = `${json.completed_games.sort(function(a,b){return a.score-b.score}).slice(-1)[0].score}!`
     } else{
     	this.high_score = 'First Time Playing!'
     }
