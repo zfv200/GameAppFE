@@ -18,6 +18,7 @@ class Leaderboard{
     <ol>
       ${this.renderScores()}
     </ol>
-    </div>`
+    </div>
+    ${Gameplay.render()}`
   }
 }
