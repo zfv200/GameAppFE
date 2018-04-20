@@ -205,5 +205,17 @@ class EnemyStructure {
         }
     }
 
+    bombCollision(position){
+      let enemyPosition = parseInt(this.structure.style.left)
+      console.log(Math.abs(position-enemyPosition))
+      if (Math.abs(position-enemyPosition)<200){
+        this.structure.remove()
+        this.alive = false
+        if (EnemyStructure.countAlive() < 25){
+            new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
+        }
+      }
+    }
+
 
 }

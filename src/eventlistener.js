@@ -54,7 +54,10 @@ class EventListener{
 			player.moveAimUp()
 		} else if (e.which === 40){
 			e.preventDefault()
-			player.moveAimDown()
+ 			player.moveAimDown()
+		} else if (e.which === 74){
+			player.lastResort()
+			player.bomb = false
 		}
 	}
 
