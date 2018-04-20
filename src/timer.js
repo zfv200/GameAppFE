@@ -4,6 +4,7 @@ class Timer{
 
   constructor(){
     this.id = ++timerId
+    
   }
 
   render(){

@@ -109,8 +109,19 @@ body {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 1000px;
+  left: 940px;
   font-family: "Luminari", fantasy;
+  z-index: 3;
+}
+
+.timer-title{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+    /*top: 40px;*/
+  left: 795px;
+  font-family: "Luminari", fantasy;
+  z-index: 3;
 }
 
 #high-score {
