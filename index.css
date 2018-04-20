@@ -5,6 +5,19 @@ body {
   background-color: #90ee90;
 }
 
+#welcome-content {
+  text-align: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+#game-play{
+  color: red;
+}
+
 #start, #restart {
   color: red;
   font-family: "Luminari", fantasy;
@@ -96,7 +109,7 @@ body {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 1020px;
+  left: 1000px;
   font-family: "Luminari", fantasy;
 }
 
@@ -110,7 +123,7 @@ body {
 }
 
 #canvas {
-	width: 1000px;
+	width: 970px;
 	height: 600px;
   position: absolute;
   background-image: url(images/background.jpg)

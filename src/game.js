@@ -7,8 +7,8 @@ class Game {
   static renderLogin(){
     let gameContent = document.getElementById('game-content')
     let welcomeScreen = `
-      <h3>Enter Your Username!</h3>
       <div id="welcome-content">
+      <h3>Enter Your Username!</h3>
       <form id="user-form">
       <input id="user_name_input" type="text">
       <input type="submit">
@@ -31,7 +31,7 @@ class Game {
     area.id = 'canvas'
     gameContent.innerHTML = ''
     gameContent.appendChild(area)
-    gameContent.appendChild(highScore)
+    // gameContent.appendChild(highScore)
     gameContent.appendChild(board)
     // gameContent.innerHTML += timer.render()
     // timer.increment()
