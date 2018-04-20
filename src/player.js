@@ -64,8 +64,9 @@ class Player{
 
   lastResort(){
     if (this.bomb===true){
-      let position = parseInt(this.player.style.left)
-      structureStore.forEach(structure=>structure.bombCollision(position))
+      EnemyStructure.bombCollision()
+      // let position = parseInt(this.player.style.left)
+      // structureStore.forEach(structure=>structure.bombCollision(position))
     }
   }
 
