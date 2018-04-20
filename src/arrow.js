@@ -81,7 +81,7 @@ class Arrow{
 			if (left < aim) {
 				arrow.style.bottom = `${bottom + Math.round(distance / 30.0)}px`
 			} else {
-				if (bottom >= 0 && left < 980) {
+				if (bottom >= -2 && left < 980) {
 					arrow.style.bottom = `${bottom - Math.round(distance / 30.0)}px`
 				} else{
 					if (arrow.parentNode !== null){
