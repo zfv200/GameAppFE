@@ -124,6 +124,10 @@ body {
   z-index: 3;
 }
 
+.explosion {
+
+}
+
 #high-score {
   width: 1000px;
   height: 40px;

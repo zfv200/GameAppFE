@@ -201,7 +201,6 @@ class EnemyStructure {
               console.log('GAME OVER')
               Game.gameOver()
             }
-
         }
     }
 
@@ -209,8 +208,15 @@ class EnemyStructure {
       let enemyPosition = parseInt(this.structure.style.left)
       console.log(Math.abs(position-enemyPosition))
       if (Math.abs(position-enemyPosition)<200){
-        this.structure.remove()
+
         this.alive = false
+        // setTimeout(function(){
+        //   debugger;
+        //   this.structure.remove()}, 1000)
+        clearInterval(this.interval)
+        this.structure.remove()
+        store[0].player.className = "explosion"
+        setTimeout(function(){store[0].player.className="player"}, 2000)
         if (EnemyStructure.countAlive() < 25){
             new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)
         }
