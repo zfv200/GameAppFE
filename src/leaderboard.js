@@ -9,14 +9,15 @@ class Leaderboard{
 
   renderScores(){
     let sorted = scoreStore.sort((a,b)=>b.score-a.score)
-    return sorted.map(score=>score.render()).join("")
+    return sorted.slice(0,10).map(score=>score.render()).join("")
   }
 
   render(){
     return `<div class="leaderboard">
-    <ul>
+    <h1>Top Scores</h1>
+    <ol>
       ${this.renderScores()}
-    </ul>
+    </ol>
     </div>`
   }
 }
