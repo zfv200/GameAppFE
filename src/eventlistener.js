@@ -40,7 +40,10 @@ class EventListener{
 
 	static playerKeys(e){
 		let player = store[0]
-		if (e.which===39){
+
+		if (e.which === 32 || e.which === 70 ){
+			e.preventDefault()
+		}else if (e.which===39){
 			e.preventDefault()
 			player.moveRight()
 		} else if (e.which===37){
