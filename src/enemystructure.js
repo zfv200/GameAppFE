@@ -201,8 +201,55 @@ class EnemyStructure {
               console.log('GAME OVER')
               Game.gameOver()
             }
-
         }
+    }
+
+    // bombCollision(position){
+    //   let enemyPosition = parseInt(this.structure.style.left)
+    //   let player = store[0].player
+      // player.innerHTML = `<div class="c3"><div class="container">
+      //       <div class="r3 f3"></div>
+      //       <div class="o3 f3"></div>
+      //       <div class="y3 f3"></div>
+      //       <div class="w3 f3"></div>
+      //       </div>
+      //     </div>`
+    //   setTimeout(function(){store[0].player.innerHTML=""}, 2000)
+    //   if (Math.abs(position-enemyPosition)<1000){
+    //     this.alive = false
+    //     structureStore.forEach(structure=>clearInterval(structure.interval))
+    //     setInterval(function(){structureStore.forEach(structure=>{structure.structure.remove()})}, 2000)
+    //     structureStore = []
+    //     // this.structure.remove()
+    //     if (EnemyStructure.countAlive() < 25){
+    //         setTimeout(function(){new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)}, 2000)
+    //     }
+    //   }
+    // }
+
+    static bombCollision(){
+      let player = store[0].player
+      player.innerHTML = `<div class="c3"><div class="container">
+            <div class="r3 f3"></div>
+            <div class="o3 f3"></div>
+            <div class="y3 f3"></div>
+            <div class="w3 f3"></div>
+            </div>
+          </div>`
+
+      // structureStore.forEach(structure=>structure.alive=false)
+      setTimeout(function(){structureStore.forEach(structure=>structure.structure.innerHTML = `<div class="iced"></div>`)},1000)
+      setTimeout(function(){store[0].player.innerHTML=""}, 2000)
+      setTimeout(structureStore.forEach(structure=>{clearInterval(structure.interval)}), 2000)
+      // setTimeout(structureStore.forEach(structure=>{setInterval(structure.interval)}), 4000)
+
+      // setTimeout(function(){structureStore.forEach(structure=>{structure.structure.remove()})}, 2000)
+      // setTimeout(function(){structureStore = []}, 2000)
+      // structureStore = []
+
+      for(let i=0;i<25;i++){
+          setTimeout(function(){new EnemyStructure(`${Math.floor(Math.random() * (880-450) + 450)}px`, 4)}, 2000)
+      }
     }
 
 

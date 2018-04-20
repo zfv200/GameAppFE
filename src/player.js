@@ -15,6 +15,7 @@ class Player{
     this.target.style.bottom = '60px'
     this.target.style.left = '105px'
     canvas.appendChild(this.target)
+    this.bomb = true
 
     store.push(this)
   }
@@ -59,6 +60,14 @@ class Player{
       this.target.style.bottom = '35px'
     }
     this.aim = 150 + ((parseInt(this.target.style.bottom) - 35) * 5)
+  }
+
+  lastResort(){
+    if (this.bomb===true){
+      EnemyStructure.bombCollision()
+      // let position = parseInt(this.player.style.left)
+      // structureStore.forEach(structure=>structure.bombCollision(position))
+    }
   }
 
 
