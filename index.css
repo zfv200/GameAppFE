@@ -91,7 +91,15 @@ h1 {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 1020px;
+  left: 1040px;
+}
+
+.timer-title{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 1025px;
+  top: 40px;
 }
 
 #high-score {

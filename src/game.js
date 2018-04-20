@@ -35,13 +35,15 @@ class Game {
     gameContent.appendChild(board)
     // gameContent.innerHTML += timer.render()
     // timer.increment()
-      let start = document.createElement('h1')
-      start.id = 'start'
-      start.innerHTML = 'START GAME'
-      area.appendChild(start)
+    let start = document.createElement('h1')
+    start.id = 'start'
+    start.innerHTML = 'START GAME'
+    area.appendChild(start)
     timer = new Timer
     new Leaderboard
+
     gameContent.innerHTML += timer.render()
+    gameContent.innerHTML += "<h1 class='timer-title'>Score</h1>"
     Adapter.leaderboard()
 
 
