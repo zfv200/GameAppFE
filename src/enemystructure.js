@@ -193,12 +193,8 @@ class EnemyStructure {
           (parseInt(this.structure.style.left) + 20) > parseInt(player.style.left) + 10 &&
           parseInt(player.style.bottom) + 10 < (parseInt(this.structure.style.bottom) + 20) &&
           parseInt(player.style.bottom) + 10 > parseInt(this.structure.style.bottom)) {
-            let canvas = document.getElementById('canvas')
-            let blood = document.createElement('div')
-            blood.className = "aftermath"
-            blood.style.left = `${parseInt(player.style.left) + Math.round(Math.random() * 100) - 50}px`
-            blood.style.bottom = `${parseInt(player.style.bottom) + Math.round(Math.random() * 100) - 50}px`
-            canvas.appendChild(blood)
+            new Blood
+            Blood.bloodLimit()
             level = 0
             if (gameOver === false) {
               gameOver = true
