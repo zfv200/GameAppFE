@@ -134,7 +134,7 @@ body {
 }
 
 #canvas {
-	width: 970px;
+	width: 1000px;
 	height: 600px;
   position: absolute;
   background-image: url(images/background.jpg)
