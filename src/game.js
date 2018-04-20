@@ -55,6 +55,7 @@ class Game {
     Game.renderGameplay()
     document.getElementById('start').remove()
     EventListener.keypress()
+    EventListener.keyup()
     timerInterval = setInterval(timer.increment, 1000)
     Game.renderEnemyStructure()
     gameOver = false

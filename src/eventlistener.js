@@ -40,31 +40,40 @@ class EventListener{
 
 	static playerKeys(e){
 		let player = store[0]
-			if (e.which === 32 || e.which === 70 ){
-				e.preventDefault()
-				if (!gameOver){
-					let arrow;
-					new Arrow(player.aim)
-					arrow = arrowStore.slice(-1)[0]
-					arrow.shoot()
-				}
-			} else if (e.which===39){
-				e.preventDefault()
-				player.moveRight()
-			} else if (e.which===37){
-				e.preventDefault()
-				player.moveLeft()
-			} else if (e.which === 38){
-				e.preventDefault()
-				player.moveAimUp()
-			} else if (e.which === 40){
-				e.preventDefault()
-				player.moveAimDown()
-			}
+		if (e.which===39){
+			e.preventDefault()
+			player.moveRight()
+		} else if (e.which===37){
+			e.preventDefault()
+			player.moveLeft()
+		} else if (e.which === 38){
+			e.preventDefault()
+			player.moveAimUp()
+		} else if (e.which === 40){
+			e.preventDefault()
+			player.moveAimDown()
 		}
+	}
 
 	static keypress(){
 		document.addEventListener('keydown', EventListener.playerKeys)
+	}
+
+	static shootKey(e){
+		let player = store[0]
+		if (e.which === 32 || e.which === 70 ){
+			e.preventDefault()
+			if (!gameOver){
+				let arrow;
+				new Arrow(player.aim)
+				arrow = arrowStore.slice(-1)[0]
+				arrow.shoot()
+			}
+		}
+	}
+
+	static keyup(){
+		document.addEventListener('keyup', EventListener.shootKey)
 	}
 
 	// static playerMovement(){
