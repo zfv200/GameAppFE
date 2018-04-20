@@ -13,7 +13,7 @@ class Blood {
   }
 
   static bloodLimit(){
-    if (bloodStore.length > 125){
+    if (bloodStore.length > 200){
       for (let i = 0; i<10; i++){
         bloodStore[i].remove()
       }
